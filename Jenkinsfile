@@ -18,21 +18,7 @@ pipeline {
     }
   }
 
-  post {
-    always {
-     sh 'echo "POST  ALWAYS"'
-      // Processing test results
-     // junit 'fastlane/test_output/report.junit'
-      // Cleanup
-     // sh 'rm -rf build'
-    }
-    success {
-     // notifyBuild()
-    }
-    failure {
-      //notifyBuild('ERROR')
-    }
-  }
+ 
 }
 
 // Slack notification with status and code changes from git
