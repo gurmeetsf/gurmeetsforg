@@ -12,38 +12,8 @@ pipeline {
 
     stage('Dependecies') {
       steps {
+         sh 'echo "Dependecies"'
         //sh '/usr/local/bin/pod install'
-      }
-    }
-
-    stage('Running Tests') {
-      steps {
-        parallel (
-          "Unit Tests": {
-            sh 'echo "Unit Tests"'
-           // sh 'fastlane scan'
-          },
-          "UI Automation": {
-            sh 'echo "UI Automation"'
-          }
-        )
-      }
-    }
-
-    stage('Documentation') {
-      when {
-        expression {
-          env.BRANCH_NAME == 'develop'
-        }
-      }
-      steps {
-       sh 'echo "STEPS"'
-        // Generating docs
-       // sh 'jazzy'
-        // Removing current version from web server
-       // sh 'rm -rf /path/to/doc/ios'
-        // Copy new docs to web server
-       // sh 'cp -a docs/source/. /path/to/doc/ios'
       }
     }
   }
